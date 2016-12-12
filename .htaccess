@@ -1,0 +1,12 @@
+# NOTE: Make sure to remove "AllowOverride None" from the directive <Directory ".../www/">
+<IfModule mod_rewrite.c>
+
+ 	RewriteEngine On
+	RewriteBase /
+	
+	# Protect private files
+	RewriteRule /?\.htaccess$ - [F,L]
+	RewriteRule ^README\.txt$ - [F,L]
+	RewriteRule ^\.git - [F,L]
+	
+</IfModule>
